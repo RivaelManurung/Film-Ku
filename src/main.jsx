@@ -1,10 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css' // <-- Make sure you import the CSS file here
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import App from "./App";
+import Home from "./pages/Home";
+// Kita akan buat halaman lain nanti
+import SearchResults from "./pages/SearchResults";
+import MovieDetail from "./pages/MovieDetail";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />, // Layout utama
+    children: [
+      {
+        index: true, // Halaman default (/)
+        element: <Home />,
+      },
+      { path: "search", element: <SearchResults /> },
+      { path: "movie/:movieId", element: <MovieDetail /> }, // Tambahkan rute ini
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

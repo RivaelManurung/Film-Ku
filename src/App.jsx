@@ -1,13 +1,19 @@
 import React from 'react';
-import Home from './pages/Home';
-import './index.css';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <Home />
+    <div className="bg-gray-900 min-h-screen text-white">
+      <Navbar />
+      <main>
+        {/* Konten halaman dinamis akan dirender di sini */}
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
