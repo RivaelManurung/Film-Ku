@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
-  // Jika objek movie tidak ada, atau tidak ada poster_path, jangan render komponen ini.
   if (!movie || !movie.poster_path) {
-    return null; // <-- TAMBAHKAN PENGECEKAN INI
+    return null;
   }
 
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;

@@ -2,7 +2,6 @@ import React from 'react';
 
 // Terima 'movie' sebagai prop
 const Hero = ({ movie }) => {
-  // Jika data movie belum ada (masih loading), tampilkan fallback
   if (!movie) {
     return (
       <div className="h-screen bg-gray-800 flex items-center justify-center">
